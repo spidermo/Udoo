@@ -25,4 +25,4 @@ for location in db.location.find():
     print location
 
 for location in db.location.find():
-    print("dt: " + location["dt"].strftime("%m-%d-%Y %H:%M:%S") + ", gps: [" + str(location["gps"][0]) + ", " + str(location["gps"][1]) + "], alt: " + location["alt"])
+    print("dt: " + location["dt"].strftime("%m-%d-%Y %H:%M:%S") + ", gps: [" + str(location["gps"][0]) + ", " + str(location["gps"][1]) + "], alt: " + str(location["alt"]))
