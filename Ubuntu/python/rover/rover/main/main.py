@@ -21,5 +21,5 @@ loc = [
        ];
 db.location.insert(loc)
 
-for location in db.location:
+for location in db.location.find():
     print("location: " + location)
