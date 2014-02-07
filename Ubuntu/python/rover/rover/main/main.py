@@ -23,3 +23,6 @@ db.location.insert(loc)
 
 for location in db.location.find():
     print location
+
+for location in db.location.find():
+    print("dt: " + location.dt + ", gps: [" + location.gps[0] + ", " +  + location.gps[1] + "], alt: ")
