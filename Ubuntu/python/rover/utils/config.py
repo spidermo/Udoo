@@ -10,7 +10,14 @@ class Config(object):
 		self._readConfig()
 
 	def _readConfig(self):
-		self._config = SafeConfigParser({"db_host": "localhost", "db_port": "27017", "db_name": "rover"})
+		self._config = SafeConfigParser({
+			"db_host": "localhost",
+			"db_port": "27017",
+			"db_name": "rover",
+			"serial_path": "/dev/ttymxc3",
+			"serial_baud": "115200",
+			"serial_timeout": "0.5",
+			"serial_encoding": "windows-1252"})
 		self._config.read(self._configFileName)
 		self._validateConfig()
 
@@ -21,6 +28,9 @@ class Config(object):
 		changed = False
 		if not self._config.has_section("db"):
 			self._config.add_section("db")
+			changed = True
+		if not self._config.has_section("arduino_serial"):
+			self._config.add_section("arduino_serial")
 			changed = True
 		if changed:
 			self._writeConfig()
